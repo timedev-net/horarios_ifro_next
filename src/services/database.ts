@@ -8,6 +8,8 @@ export const db = {
     filename: './database.db',
     driver: sqlite3.Database
   },
+
+  
   getDisciplinas: async () => {
     const conn = await open(db.connection)
     const res = await conn.all('select * from disciplinas')

@@ -36,16 +36,16 @@ export default function Disciplinas(props: any) {
         <div className={styles.center}>
           <Image className={styles.logo} src="/ifro.png" alt="Logo Ifro" width={250} height={220} />
         </div>
-        <h1 className={inter.className}>Disciplinas</h1>
+        <h1 className={inter.className}>Docentes</h1>
 
 
 
         <div>
-          <form action="/api/disciplinas" method="post">
-            Nome da Disciplina: <input required value={inputName} onChange={(e) => setInputName(e.target.value)} type="text" name="nome" className={`${styles.inputText} ${inter.className}`} /> <input type="submit" value="Salvar" className={styles.btn} />
+          <form action="/disciplinas" method="post">
+            Nome da Disciplina: <input value={inputName} onChange={(e) => setInputName(e.target.value)} type="text" name="nome" className={`${styles.inputText} ${inter.className}`} /> <input type="submit" value="Salvar" className={styles.btn} />
           </form>
           <div style={{margin:20}}>
-            {disciplinas.map((e: any, i: number) => (<div key={i} style={{display: "flex"}}><h1>{e.id} - {e.nome}</h1><button style={{ height: 20, backgroundColor: "red"}}>x</button><br /></div>))}
+            {disciplinas.map((e: any, i: number) => (<div key={i}><h1>{e.id} - {e.nome}</h1><br /></div>))}
           </div>
 
 
@@ -57,13 +57,13 @@ export default function Disciplinas(props: any) {
 
 export async function getServerSideProps(context: any) {
   const disciplinas = await db.getDisciplinas()
-  console.log(context.req.body)
-  if (context.query.nome && context.query.nome.length > 0) {
-    console.log(context.query.nome)
-    console.log('context.query.nome')
-    // await db.setDisciplina(context.query.nome)
-  }
-  // const disciplinasClass = await DB.getDisciplinas()
+  // console.log(context.req.body)
+  // if (context.query.nome && context.query.nome.length > 0) {
+  //   console.log(context.query.nome)
+  //   console.log('context.query.nome')
+  //   // await db.setDisciplina(context.query.nome)
+  // }
+  // // const disciplinasClass = await DB.getDisciplinas()
 
   return {
     props: { disciplinas }, // will be passed to the page component as props
