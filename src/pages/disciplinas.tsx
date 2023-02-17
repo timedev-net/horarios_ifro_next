@@ -23,6 +23,11 @@ export default function Disciplinas(props: any) {
     }
   }, [])
 
+  const handleDelete = async (id: number) => {
+    await fetch(`/api/disciplinas/delete/${id}`, {method: "DELETE"})
+    router.reload()
+  }
+
   return disciplinas && (
     <>
       <Head>
@@ -41,11 +46,11 @@ export default function Disciplinas(props: any) {
 
 
         <div>
-          <form action="/api/disciplinas" method="post">
+          <form action="/api/disciplinas/create" method="post">
             Nome da Disciplina: <input required value={inputName} onChange={(e) => setInputName(e.target.value)} type="text" name="nome" className={`${styles.inputText} ${inter.className}`} /> <input type="submit" value="Salvar" className={styles.btn} />
           </form>
           <div style={{margin:20}}>
-            {disciplinas.map((e: any, i: number) => (<div key={i} style={{display: "flex"}}><h1>{e.id} - {e.nome}</h1><button style={{ height: 20, backgroundColor: "red"}}>x</button><br /></div>))}
+            {disciplinas.map((e: any, i: number) => (<div key={i} style={{display: "flex"}}><h1>{i+1} - {e.nome}</h1><button onClick={() => handleDelete(e.id)} style={{ height: 20, backgroundColor: "red"}}>x</button><br /></div>))}
           </div>
 
 
