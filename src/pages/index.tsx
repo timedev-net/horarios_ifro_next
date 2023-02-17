@@ -42,19 +42,19 @@ export default function Home(props: any) {
         <div className={styles.grid}>
           <a onClick={() => router.push('/disciplinas')} className={styles.card} rel="noopener noreferrer">
             <h2 className={inter.className}>Disciplinas <span>-&gt;</span></h2>
-            <p className={inter.className}>Visualise e cadastre novas disciplinas.</p>
+            <p className={inter.className}>Visualize e cadastre novas disciplinas.</p>
           </a>
           <a onClick={() => router.push('/docentes')} className={styles.card} rel="noopener noreferrer">
             <h2 className={inter.className}>Docentes <span>-&gt;</span></h2>
-            <p className={inter.className}>Visualise e cadastre o corpo docente.</p>
+            <p className={inter.className}>Visualize e cadastre o corpo docente.</p>
           </a>
           <a onClick={() => router.push('/ambientes')} className={styles.card} rel="noopener noreferrer">
             <h2 className={inter.className}>Ambientes <span>-&gt;</span></h2>
-            <p className={inter.className}>Visualise e cadastre salas, laboratórios e auditórios.</p>
+            <p className={inter.className}>Visualize e cadastre salas, laboratórios e auditórios.</p>
           </a>
           <a onClick={() => router.push('/horarios')} className={styles.card} rel="noopener noreferrer">
             <h2 className={inter.className}>Horários <span>-&gt;</span></h2>
-            <p className={inter.className}>Visualise e cadastre os relatórios de horários das turmas.</p>
+            <p className={inter.className}>Visualize e cadastre os relatórios de horários das turmas.</p>
           </a>
         
         </div>

@@ -34,9 +34,33 @@ export const db = {
     await conn.close()
     return res
   },
+  setDocentes: async (nome: string) => {
+    const conn = await open(db.connection)
+    const res = await conn.run('insert into docentes (nome) values (?)', nome)
+    await conn.close()
+    return res
+  },
+  delDocentes: async (id: number) => {
+    const conn = await open(db.connection)
+    const res = await conn.run('delete from docentes where id=(?)', id)
+    await conn.close()
+    return res
+  },
   getAmbientes: async () => {
     const conn = await open(db.connection)
     const res = await conn.all('select * from ambientes')
+    await conn.close()
+    return res
+  },
+  setAmbientes: async (nome: string) => {
+    const conn = await open(db.connection)
+    const res = await conn.run('insert into ambientes (nome) values (?)', nome)
+    await conn.close()
+    return res
+  },
+  delAmbientes: async (id: number) => {
+    const conn = await open(db.connection)
+    const res = await conn.run('delete from ambientes where id=(?)', id)
     await conn.close()
     return res
   },
@@ -45,6 +69,12 @@ export const db = {
     const res = await conn.all('select * from horarios')
     await conn.close()
     return res
-  }
+  },
+  setHorarios: async (nome: string) => {
+    const conn = await open(db.connection)
+    const res = await conn.run('insert into horarios (nome) values (?)', nome)
+    await conn.close()
+    return res
+  },
 }
 
